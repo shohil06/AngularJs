@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app='app1' ng-init="person = {fName: 'Shohil' , lName: 'Sethia'}; capitals=[{city: 'Kota' , state: 'Rajasthan'},{city: 'Hyderabad' , state: 'Andhra Pradesh'},{city: 'Chennai' , state: 'Tamil Nadu'}]">
+  <head>
+    <meta charset="utf-8">
+    <title>AngularJs Tutorial</title>
+  </head>
+  <body>
+    <div ng-controller="ctrl2">
+      First Random Number: {{randomNum1}}
+      <!-- Second Random Number: {{randomNum2}} -->
+      Third Random Number: {{randomNum2 + randomNum1}}
+    </div>
+    <div ng-controller="badCtrl">
+      I'm Feeling just not too Bad :-p ! {{bad}}
+    </div>
+    <div ng-controller="goodCtrl">
+      I'm definitly not feeling so good too ! {{good}}
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <!-- <script src="includes\angular-1.2.30\angular.min.js"></script> -->
+    <script src="includes/js/exam1.js"></script>
+  </body>
+</html>
