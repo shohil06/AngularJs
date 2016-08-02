@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app='app1' ng-cloak>
+  <head>
+    <meta charset="utf-8">
+    <title>AngularJs Tutorial</title>
+    <style>
+      [ng\:cloak], [ng-cloak], .ng-cloak{
+        display : none;
+      }
+    </style>
+  </head>
+  <body>
+    <div ng-controller="gListCtrl">
+      <h3>{{groceries.length}} groceries to get from market</h3>
+      <br><br><br>
+
+      <ol>
+        <li>{{groceries[0].name}}</li>
+      </ol>
+      <br><br><br><br><br>
+      <ol start="2">
+        <li ng-repeat="grocery in groceries" ng-if="$index > 0">
+        {{grocery.name}} {{$index}}
+      </li>
+      </ol>
+      <table>
+        <tr ng-repeat-start="grocery in groceries">
+          <td>
+            {{grocery.name}}
+          </td>
+        </tr>
+        <tr ng-repeat-end>
+          <td>
+            {{grocery.value}}
+          </td>
+        </tr>
+      </table>
+
+      <h2>Grocery list:</h2>
+      <div ng-include="'orderedList.html'"></div>
+
+      <div>
+        <input type="checkbox" ng-model="showList">
+        Show Un-Ordered List
+        <!-- <br> -->
+        <ng-include src="getList()"></ng-include>
+      </div>
+    </div>
+  <div ng-controller="ctrl2">
+    <h4 >
+      Try Your Lucky-7
+      <input type="text" ng-model="randomNum1" />
+    </h4>
+  <!-- </div> -->
+    <div ng-switch="randomNum1">
+      <h3 ng-switch-when="1">Awww ! you lost .</h3>
+      <h3 ng-switch-when="2">Awww ! you lost again.</h3>
+      <h3 ng-switch-when="3">Awww ! you lost ,pity yuuu.</h3>
+      <h3 ng-switch-when="4">Awww ! you lost ,dumb ass.</h3>
+      <h3 ng-switch-when="5">Awww ! you lost ,youu idiiot.</h3>
+      <h3 ng-switch-when="6">Awww ! you lost ,happie to be an idiot.</h3>
+      <h3 ng-switch-when="7">Well Congo You Actually Won Galti se!</h3>
+      <h3 ng-switch-default>Awww ! you lost !try AGain.</h3>
+    </div>
+
+  </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <!-- <script src="includes\angular-1.2.30\angular.min.js"></script> -->
+    <script src="includes/js/exam1.js"></script>
+  </body>
+</html>

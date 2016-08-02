@@ -23,3 +23,10 @@ app1.controller('goodCtrl' , function($scope){
   var goodFeelings = ["Pleasure" , "Awesome" , "Lovable" , "Inner-Peace"];
   $scope.good = goodFeelings[ Math.floor( (Math.random() * 4) ) ];
 });
+
+app1.controller('gListCtrl' , function($scope){
+  $scope.groceries = [{name: "Potatoes" ,value: "True"},{name: "Murkh_Random" ,value: "True"},{name: "Tomatoes" ,value: "True"},{name: "Garlic Bread" ,value: "True"}];
+  $scope.getList = function(){
+    return $scope.showList ? "unOrderedList.html" : "orderedList.html";
+  };
+});
