@@ -34,4 +34,5 @@ app1.controller('gListCtrl' , function($scope){
 app1.controller('evntCtrl' , function($scope){
   $scope.disableButton=true;
   $scope.dayTimeButton=true;
+  $scope.capitals=[{"city": 'Kota' , "state": 'Rajasthan'},{"city": 'Hyderabad' , state: 'Andhra Pradesh'},{"city": 'Chennai' , state: 'Tamil Nadu'}];
 });

@@ -86,13 +86,24 @@
       Good Evening
     </p>
      -->
-     <p>
+
+
+     <!-- <p>
        <select ng-model="textStyle">
          <option value="bluetext">Blue Text</option>
          <option value="boldtext">Bold Text</option>
        </select>
      </p>
-     <p ng-class="textStyle">Some Random Text !</p>
+     <p ng-class="textStyle">Some Random Text !</p> -->
+
+
+     <table>
+       <tr ng-repeat="Cap in capitals" ng-class-even="'bluetext'" ng-class-odd="'boldtext'">
+         <td>{{Cap.city}}</td>
+         <td>{{Cap.state}}</td>
+       </tr>
+     </table>
+
   </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <!-- <script src="includes\angular-1.2.30\angular.min.js"></script> -->
