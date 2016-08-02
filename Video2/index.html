@@ -1,33 +1,68 @@
 <!DOCTYPE html>
-<html ng-app='app1' ng-init="person = {fName: 'Shohil' , lName: 'Sethia'}; capitals=[{city: 'Kota' , state: 'Rajasthan'},{city: 'Hyderabad' , state: 'Andhra Pradesh'},{city: 'Chennai' , state: 'Tamil Nadu'}]">
+<html ng-app='app2' ng-init="person = {fName: 'Shohil' , lName: 'Sethia'}; capitals=[{city: 'Kota' , state: 'Rajasthan'},{city: 'Hyderabad' , state: 'Andhra Pradesh'},{city: 'Chennai' , state: 'Tamil Nadu'}]" ng-cloak>
   <head>
     <meta charset="utf-8">
     <title>AngularJs Tutorial</title>
   </head>
+  <style>
+    [ng\:cloak] , [ng-cloak] , .ng-cloak{ display: none ;}
+    table
+    {
+      width: 400px;
+      text-align: left;
+      border: 2px solid black;
+      padding: 10px;
+    }
+    input.ng-dirty.ng-invalid
+    {
+      border.color: red;
+    }
+  </style>
   <body>
-    <div ng-controller="ctrl1">
-      <span>Values: </span>
-      <input type="text" ng-model="first" />
-      <input type="text" ng-model="second" />
+    <div ng-controller="gListCtrl">
+        <h3>Grocery List</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Name:</th>
+              <th>Value:</th>
+            </tr>
+          </thead>
+          <tr ng-repeat="grocery in groceries">
+            <td>
+              {{grocery.name}}
+            </td>
+            <td>
+              <input type="checkbox" ng-model="grocery.purchased">
+            </td>
+          </tr>
+        </table>
+        <br>
+        <label>New Item:
+          <input type="text" ng-model="newItem">
+        </label>
+        <button ng-click="addItem(newItem)">Add Item</button>
+        <h4>{{missingNewItemError}}</h4>
+    </div><!-- End of the gListCtrl -->
 
-      <button ng-click="update1Value()">Sum</button>
-      <br><br>
+    <div ng-controller="">
+      <form name:"userForm" ng-submit="saveUser(userInfo)">
+        <label>First Name : </label>
+        <input type="text" name="fname" ng-model="userInfo.fName" ng-required="true" ng-minlength="2" />
+        <span class="error message" ng-show="userForm.fName.$dirty && userForm.fName.$error.required">Must Enter a First Name !</span>
+        <span class="error message" ng-show="userForm.fName.$dirty && userForm.fName.$error.minlength">Must be minimum of 2 characters !</span>
+        <br><br>
+        <label>Last Name : </label>
+        <input type="text" name="lname" ng-model="userInfo.lName" ng-required="true" ng-minlength="2" />
+        <span class="error message" ng-show="userForm.lName.$dirty && userForm.lName.$error.required">Must Enter a Last Name !</span>
+        <span class="error message" ng-show="userForm.lName.$dirty && userForm.lName.$error.minlength">Must be minimum of 2 characters !</span>
+        <br><br>
+        <label>Street:</label>
+        <input type="text" name="street" ng-model="userInfo.street" ng-required="true" ng-minlength="6">
+        <span class="error-message" ng-show="userForm.street.$dirty && userForm.street.$invalid">Must enter a number , street ,and Street Type (ex: 123 Main St.)</span>
+        <br><br>
 
-      {{calculation123}}
-      <p>5 + 5 = {{5 + 59++5+5+5+55+5+55+5+5+555}}</p>
-      <p>Your First Value is {{first}}</p>
-
-      {{person.fName + " " + person.lName}}<!-- To add a String to the html Page. -->
-      <br>
-
-      <ul><!-- To Print Repeatedly in the html page. -->
-        <li ng-repeat = "Cap in capitals">
-          {{'city:  ' + Cap.city + '  ,State:  ' + Cap.state}}
-          <br><br>
-        </li>
-      </ul>
-
-
+      </form>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <!-- <script src="includes\angular-1.2.30\angular.min.js"></script> -->

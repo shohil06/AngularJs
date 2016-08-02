@@ -36,3 +36,27 @@ app1.controller('evntCtrl' , function($scope){
   $scope.dayTimeButton=true;
   $scope.capitals=[{"city": 'Kota' , "state": 'Rajasthan'},{"city": 'Hyderabad' , state: 'Andhra Pradesh'},{"city": 'Chennai' , state: 'Tamil Nadu'}];
 });
+
+
+/*-------------------------
+  app2 starts from here
+-------------------------*/
+var app2=angular.module('app2' , []);
+app2.controller('gListCtrl' , function($scope){
+  $scope.groceries = [{name: "Potatoes" ,value: "True"},{name: "Murkh_Random" ,value: "True"},{name: "Tomatoes" ,value: "True"},{name: "Garlic Bread" ,value: "True"}];
+  $scope.addItem = function(newItem){
+    if(!(newItem === undefined || newItem === ""))
+    {
+      $scope.groceries.push({name: newItem , purchased: false});
+      $scope.missingNewItemError = "";
+    }
+    else
+    {
+      $scope.missingNewItemError = "Please Enter an Item";
+    }
+  };
+});
+
+app2.controller('userCtrl' , function($scope){
+
+});
