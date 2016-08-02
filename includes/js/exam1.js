@@ -30,3 +30,8 @@ app1.controller('gListCtrl' , function($scope){
     return $scope.showList ? "unOrderedList.html" : "orderedList.html";
   };
 });
+
+app1.controller('evntCtrl' , function($scope){
+  $scope.disableButton=true;
+  $scope.dayTimeButton=true;
+});

@@ -7,6 +7,12 @@
       [ng\:cloak], [ng-cloak], .ng-cloak{
         display : none;
       }
+      .bluetext{
+        color: blue;
+      }
+      .boldtext{
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
@@ -63,6 +69,30 @@
       <h3 ng-switch-default>Awww ! you lost !try AGain.</h3>
     </div>
 
+  </div>
+  <div ng-controller="evntCtrl">
+    <!-- <p><button ng-disabled="disableButton">Button is Disabled !</button></p>
+    <p>
+      <input type="checkbox" ng-model="disableButton">Disable Button !
+    </p>
+
+    <p>
+      <input type="checkbox" ng-model="dayTimeButton">Morning
+    </p>
+    <p ng-hide="!dayTimeButton">
+      Good Morning
+    </p>
+    <p ng-hide="dayTimeButton">
+      Good Evening
+    </p>
+     -->
+     <p>
+       <select ng-model="textStyle">
+         <option value="bluetext">Blue Text</option>
+         <option value="boldtext">Bold Text</option>
+       </select>
+     </p>
+     <p ng-class="textStyle">Some Random Text !</p>
   </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <!-- <script src="includes\angular-1.2.30\angular.min.js"></script> -->
