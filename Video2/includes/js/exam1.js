@@ -60,3 +60,34 @@ app2.controller('gListCtrl' , function($scope){
 app2.controller('userCtrl' , function($scope){
 
 });
+
+app2.controller('heroCtrl' , function($scope , $rootScope){
+  $scope.hero=[{realName : "Bruce Wayne" , heroName : "Batman"} , {realName : "Clark Kent" , heroName : "Superman"}];
+
+  $scope.getHeroData = function(){
+    heroSearch($scope.heroName);
+  };
+
+  function heroSearch(name)
+  {
+      $scope.heroData = "Not Found";
+      for(var i=0 ; i<$scope.hero.length ; i++)
+      {
+        if($scope.hero[i].heroName === name || $scope.hero[i].realName.indexOf(name)!=-1)
+        {
+          $scope.heroData = $scope.hero[i].realName + "is" + $scope.hero[i].heroName;
+        }
+      }
+  }
+
+  $scope.$on("heroUpdated",function(event , args){
+    $scope.hero.push({realName: args.realName , heroName: args.heroName});
+  });
+
+
+$scope.addHeroData = function(realName , heroName){
+  $rootScope.$broadcast("heroUpdated" , {realName: realName , heroName: heroName});
+  $scope.hero.push({realName: args.realName , heroName: args.heroName});
+
+};
+});

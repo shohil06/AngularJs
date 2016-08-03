@@ -25,7 +25,7 @@ app1.controller('goodCtrl' , function($scope){
 });
 
 app1.controller('gListCtrl' , function($scope){
-  $scope.groceries = [{name: "Potatoes" ,value: "True"},{name: "Murkh_Random" ,value: "True"},{name: "Tomatoes" ,value: "True"},{name: "Garlic Bread" ,value: "True"}];
+  $scope.groceries = [{name: "Potatoes" ,value: "True"},{name: "Murkh_Random" ,value: "false"},{name: "Tomatoes" ,value: "True"},{name: "Garlic Bread" ,value: "True"}];
   $scope.getList = function(){
     return $scope.showList ? "unOrderedList.html" : "orderedList.html";
   };

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="app1" ng-cloak>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      [ng\:cloak] , [ng-cloak] , .ng-cloak{display :none;}
+    </style>
+  </head>
+  <body>
+    <div ng-controller="mainCtrl as parent">
+      <p>Name : {{parent.name}}</p>
+      <p>Sound : {{parent.sound}}</p>
+      <button ng-click=parent.animalClick()>Animal Data</button>
+      <br>
+    </div>
+    <div ng-controller="dogCtrl as dog">
+      <p>Name : {{dog.child.name}}</p>
+      <p>Sound : {{dog.child.sound}}</p>
+      <button ng-click=dog.child.animalClick()>Dog Data</button><br>
+      <button ng-click=dog.child.dogData()>More dog Data</button><br>
+      <input ng-model="dog.child.bark" /><br><br>
+      <span>New Bark : {{dog.child.bark}}</span>
+      <br>
+    </div>
+
+    <div ng-controller="Ctrl1">
+      <label>Make Uppercase: </label>
+      <input type="text" ng-model="name">
+      <p>Uppercase : {{name | uppercase}}</p>
+      <p>Lowercase : {{name | lowercase}}</p>
+<br><br>
+      <label>Currency Filter : </label>
+      <input type="text" ng-model="money">
+      <p>Currency : {{money | currency}}</p>
+      <br><br>
+
+      <ul>
+        <li ng-repeat="student in student.gpas | filter: studentName | orderBy:'-gpa'">
+          {{"Name : " + student.name + ' : GPA: ' + student.gpa}}
+        </li>
+      </ul>
+
+      <br><br>
+
+      <label>Number Filter : </label>
+      <input type="text" ng-model="numVal">
+      <p>Default : {{numVal | number}}</p>
+      <p>No Fractions : {{numVal | number : 0}}</p>
+      <p>Negative 4 Decimals : {{-numVal | number : 4}}</p>
+
+      <p>Date 1 : {{currDate | date: 'medium'}}</p>
+      <p>Date 2: {{currDate | date: "MM/dd/yyyy 'at' h:mma"}}</p>
+
+      <p>Default : {{randomStr}}</p>
+      <p>10 characters : {{randomStr | limitTo:3}}</p>
+
+      <ul>
+        <li ng-repeat="item in randArray | limitTo:3">{{item}}</li>
+      </ul>
+
+      <p>
+        <ul>
+          <li ng-repeat="item in weather">{{item.day + " : " }}{{item.rain | raining}}</li>
+        </ul>
+      </p>
+    </div>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="includes/js/inheritance.js"></script>
+    <script src="includes/js/filter.js"></script>
+  </body>
+</html>
