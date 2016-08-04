@@ -5,6 +5,9 @@
     <title></title>
     <style>
       [ng\:cloak] , [ng-cloak] , .ng-cloak{display :none;}
+      .thick{
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
@@ -32,8 +35,10 @@
 
      <h4>Children in List</h4>
      <span id="childrenList"></span><br><br>
-     Barry's Number: <span id="barrysNum"></span><br><br>
-     Is Hank Bold: <span id="hankBold"></span><br><br>
+     Barry's Number: <span id="barrysNumber"></span><br><br>
+       Is Hank Bold: {{isHankBold}} <!--<span id="hankBold">{{isHankBold}}</span>-->
+
+     <br><br>
      Barry's ID: <span id="barryID"></span><br><br>
      <button ng-click="unBold()">Toggle Bold</button>
     </div>

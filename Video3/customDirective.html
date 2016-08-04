@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="app2" ng-cloak>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      [ng\:cloak] , [ng-cloak] , .ng-cloak{display :none;}
+      .thick{
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div ng-controller="mainCtrl">
+      <!-- The directive name is different because each uppercase letter is treated as a separate word in the attribute name. We define the item to get from the array by saving it in the array-item attribute. This is an example on how to apply a directive as an attribute. -->
+      <div bb-player-list="bbPlayers" array-item="name | uppercase">
+      </div>
+    </div>
+
+    <div ng-controller="mainCtrl1">
+      <player name="barryBonds">
+      </player>
+    </div>
+
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="includes/js/customDirective.js"></script>
+  </body>
+</html>
